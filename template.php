@@ -9,13 +9,13 @@ $i = 0;
 $key = array();
 // множественное свойство типа список RETAIL
 if(!empty($arResult["RETAIL"])){
-  $retail = $arResult["RETAIL"];
+	$retail = $arResult["RETAIL"];
   
 	$url = preg_replace("(^https?://)", "", $retail);
 	$www = preg_replace("(^www.)", "", $url);
 
 	$key = array_map(function($v){
-    return preg_replace('#^(([^.]*){2}).*$#', '$1', $v);
+		return preg_replace('#^(([^.]*){2}).*$#', '$1', $v);
 	}, $www);
 
 	$fill = array_combine($key, $retail);
@@ -23,7 +23,7 @@ if(!empty($arResult["RETAIL"])){
 					
 	$val = array_values($fill);
 	array_unshift($val, NULL);
-  unset($val[0]);
+	unset($val[0]);
 }
 foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProp): ++$i
 ?>
