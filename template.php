@@ -29,7 +29,7 @@ foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProp): ++$i
 ?>
 <?if(!empty( $arProp["VALUE"])){
   // справочник highload-блока - WHERE_BUY
-  if($pid =="WHERE_BUY"){
+  if($pid == "WHERE_BUY"){
     if(!CModule::IncludeModule('highloadblock')) continue;
 	$ID = 4;
 	$hldata = Bitrix\Highloadblock\HighloadBlockTable::getById($ID)->fetch();
