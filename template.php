@@ -26,8 +26,8 @@ if(!empty($arResult["RETAIL"])){
 	unset($val[0]);
 }
 foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProp): ++$i
-?>
-<?if(!empty( $arProp["VALUE"])){
+
+if(!empty( $arProp["VALUE"])){
   // справочник highload-блока - WHERE_BUY
   if($pid == "WHERE_BUY"){
     if(!CModule::IncludeModule('highloadblock')) continue;
