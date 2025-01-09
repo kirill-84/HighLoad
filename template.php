@@ -37,17 +37,17 @@ if(!empty( $arProp["VALUE"])){
 	$hlDataClass = $hldata['NAME'].'Table';
 	$arFilter = Array("UF_XML_ID" => $key);
 	$result = $hlDataClass::getList(array('select' => array('UF_FILE','UF_NAME'), 'order' => array('UF_XML_ID' =>'ASC'), 'filter' => $arFilter));?>
-      <div class="row justify-content-start">
-        <?$k = (int)$k;
-          while($res = $result->fetch()){
-		$k++;
-		$r = isset($val) ? $val[$k] : '';
-		$file = CFile::ResizeImageGet($res["UF_FILE"], array("width"=>"141","height"=>"93"), BX_RESIZE_IMAGE_PROPORTIONAL, true);
-		echo '<div class="col-sm-3 align-self-center"><a href="'.$r.'" class="d-block" target="_blank" title="'.$res["UF_NAME"].'"><img src="'.$file["src"].'" class="img-fluid" alt="'.$res["UF_NAME"].'"/></a></div>';
-	  	}?>  
-      </div>
+	<div class="row justify-content-start">
+	<? $k = (int)$k;
+	  while($res = $result->fetch()){
+		  $k++;
+		  $r = isset($val) ? $val[$k] : '';
+		  $file = CFile::ResizeImageGet($res["UF_FILE"], array("width"=>"141","height"=>"93"), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+		  echo '<div class="col-sm-3 align-self-center"><a href="'.$r.'" class="d-block" target="_blank" title="'.$res["UF_NAME"].'"><img src="'.$file["src"].'" class="img-fluid" alt="'.$res["UF_NAME"].'"/></a></div>';
+	  }?>  
+	</div>
 <?
   }
 }
 endforeach;
-?>             
+?>
